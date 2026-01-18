@@ -55,7 +55,7 @@ class CustomExceptionMapper {
     private ExceptionMapper findBestMatchingExceptionMapper(Class<? extends Throwable> exClass, int maxDepth) {
         ExceptionMapper exceptionMapper = null;
         for (Map.Entry<Class<? extends Throwable>, ExceptionMapper<? extends Throwable>> entry : mappers.entrySet()) {
-            Class mapperClass = entry.getKey();
+            Class<? extends Throwable> mapperClass = entry.getKey();
             if (mapperClass.isAssignableFrom(exClass)) {
                 int depth = 0;
                 Class yo = exClass;
